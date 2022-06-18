@@ -1,0 +1,23 @@
+{
+  "name": "terminal-one",
+  "version": "1.0.0",
+  "description": "Note taker that will allow you to have hared and private notes",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cblake506/terminal-one.git"
+  },
+  "keywords": [
+    "notes",
+    "cli"
+  ],
+  "author": "cblake506 surfinsofia blankcheck0 cadencechiappe jsardinas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cblake506/terminal-one/issues"
+  },
+  "homepage": "https://github.com/cblake506/terminal-one#readme"
+}
