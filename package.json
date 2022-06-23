@@ -4,7 +4,9 @@
   "description": "Note taker that will allow you to have hared and private notes",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
