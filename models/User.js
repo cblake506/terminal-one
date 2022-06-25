@@ -1,6 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+const salt = 10;
+const maxPasswordLength = 50;
+
 // create our User model
 class User extends Model {}
 
@@ -24,9 +27,26 @@ User.init(
       validate: {
         isEmail: true
       }
-    }
+    },
+    password: {
+      type: DataTypes.STRING(maxPasswordLength),
+      allowNull: false,
+      validate: {
+        len: [2,maxPasswordLength],
+      },
+    },
   },
   {
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, salt);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, salt);
+        return updatedUserData;
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
