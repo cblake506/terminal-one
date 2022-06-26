@@ -1,11 +1,18 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
+
 
 const salt = 10;
-const maxPasswordLength = 50;
+const maxPasswordLength = 128;
 
 // create our User model
-class User extends Model {}
+class User extends Model {
+  checkPassword(loginPw) {
+    console.log('check password');
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 // create fields/columns for User model
 User.init(
@@ -16,7 +23,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true
     },
-    userName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -32,7 +39,7 @@ User.init(
       type: DataTypes.STRING(maxPasswordLength),
       allowNull: false,
       validate: {
-        len: [2,maxPasswordLength],
+        len: [2, maxPasswordLength],
       },
     },
   },
