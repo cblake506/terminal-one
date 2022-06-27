@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
   try {
     const noteData = await Note.findByPk(req.params.id, {
       // JOIN with users, using the Users_Notes through table
-      include: [{ model: User, through: Users_Notes, as: 'user_note' }]
+      include: [{ model: User, through: Users_Notes, as: 'user-to-note' }]
     });
     if (!noteData) {
       res.status(404).json({ message: 'No note found with this id!' });
