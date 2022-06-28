@@ -1,2 +1,32 @@
+Note Taker
+<br />
 
-It Works!!
+Take and share notes
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Login</h2>
+
+        <form class="form login-form">
+            <div class="form-group">
+                <label for="username-login">Username:</label>
+                <input class="form-input" type="text" id="username-login" />
+            </div>
+            <div class="form-group">
+                <label for="password-login">Password:</label>
+                <input class="form-input" type="password" id="password-login" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{{#if logged_in}}
+Welcome, {{userName}}
+{{/if}}
+
+<script src="./js/login.js"></script>
