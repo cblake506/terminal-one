@@ -9,7 +9,6 @@ const maxPasswordLength = 128;
 // create our User model
 class User extends Model {
   checkPassword(loginPw) {
-    console.log('check password');
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
