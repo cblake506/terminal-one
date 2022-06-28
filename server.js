@@ -17,7 +17,7 @@ app.set('view engine', 'handlebars');
 
 const sess = {
   secret: 'SECRET',
-  cookie: {},
+  cookie: {maxAge:5*60*1000},//5 min
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
