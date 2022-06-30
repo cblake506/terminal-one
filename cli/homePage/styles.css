@@ -1,36 +1,82 @@
 *{
     align-items: center;
     text-align: center;
-    background-color:rgb(2, 61, 63);
-    font-family: 'Courier New', Courier, monospace;
 }
 
+:root {
+    --white: white;
+    --lightblue:rgb(138, 168, 169);
+    --lightestblue: rgb(208, 224, 225);
+    --font: 'Courier New', Courier, monospace;
+    --black: black;
+}
+
+body {
+    background-color: var(--lightblue);
+    font-family: var(--font);
+}
 
 h1{
-    color: rgb(250, 247, 219);
-}
-
-#TitleInput{
-background-color: black;
-color:rgb(60, 255, 0)
-}
-
-#note-input {
-
-    background-color: black;
-color:rgb(60, 255, 0);
-width: 300px;
-height: 100px;
+    color: var(--white);
+    font-size: 35px;
 }
 
 #searchNotesInput{
-    background-color: rgb(0, 0, 0);
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 16px;
 }
 
-#searchButton{
-background-color: wheat;
+#TitleInput{
+    background-color: black;
+    color: var(--white);
+    font-size: 16px;
 }
 
-#saveButton{
-    background-color: wheat;
+#note-input {
+    background-color: var(--black);
+    color: var(--white);
+    width: 300px;
+    height: 100px;
+    font-size: 16px;
+}
+
+button {
+    background-color: var(--white);
+    margin: 10px;
+    padding: 10px;
+    color: var(--black);
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: var(--lightestblue);
+}
+
+.all-notes {
+    display: flex;
+    margin: 20px;
+}
+
+.note-card {
+    color: var(--white);
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.pink {
+    background-color: pink;
 }

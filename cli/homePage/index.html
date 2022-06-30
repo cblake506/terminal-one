@@ -23,19 +23,31 @@
     <br><br>
 
     <!-- create new note -->
-    <form name="createNote" id="createNote">
+    <div>
+        <form name="createNote" id="createNote">
         <input id="TitleInput" type="text" maxlength="25" placeholder="Type a title...">
         <br><br>
         <textarea id="note-input" placeholder="Write your note here..."></textarea>
         <br>
         <button type="submit" id="saveButton">Save</button>
+    </div>
 
-
+    <div>
         <!-- where saved notes will be -->
-        <section>
-            <div id="all-notes" class="all-notes">
+        <div id="all-notes" class="all-notes">
+            <div class="note-card blue">
+                <h3 class="note-title">Title of note</h3>
+                <p class="note-content">this is note content</p>
             </div>
-        </section>
-
+            <div class="note-card pink">
+                <h3 class="note-title">Title of note</h3>
+                <p class="note-content">this is note content</p>
+            </div>
+            <div class="note-card orange">
+                <h3 class="note-title">Title of note</h3>
+                <p class="note-content">this is note content</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
