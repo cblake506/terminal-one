@@ -26,6 +26,7 @@ header {
     color: var(--white);
     height: 75px;
     font-size: 18px;
+    margin: 0;
 }
 
 .password-match{

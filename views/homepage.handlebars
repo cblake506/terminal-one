@@ -5,7 +5,7 @@
     <form action="" id="searchForm">
         <input type="text" id="searchNotesInput" placeholder="Search Note">
         <br><br>
-        <button type="submit" id="searchButton">Search</button>
+        <button class="btn" type="submit" id="searchButton">Search</button>
     </form>
 </div>
 <br><br>
@@ -17,15 +17,15 @@
         <br><br>
         <textarea id="note-input" placeholder="Write your note here..."></textarea>
         <br>
-        <button type="submit" id="saveButton">Save</button>
+        <button class ="btn" type="submit" id="saveButton">Save</button>
 </div>
 
 <div>
     <!-- where saved notes will be -->
     <div id="all-notes" class="all-notes">
         {{#each notes as |note|}}
-            <div class="note-card blue">
-                <h3 class="note-title">{{note.title}}</h3>
+            <div class="note-card pink" id="noteCard">
+                <h3 id="noteTitle" class="note-title">{{note.title}}</h3>
                 <p class="note-content">{{note.content}}</p>
             </div>
         {{/each}}
