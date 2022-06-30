@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>terminal-home</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <h1>terminal-one</h1>
+
+    <!-- search in saved notes -->
+    <div>
+        <form action="" id="searchForm">
+            <input type="text" id="searchNotesInput" placeholder="Search Note">
+            <br><br>
+            <button type="submit" id="searchButton">search</button>
+        </form>
+    </div>
+    <br><br>
+
+    <!-- create new note -->
+    <form name="createNote" id="createNote">
+        <input id="TitleInput" type="text" maxlength="25" placeholder="Type a title...">
+        <br><br>
+        <textarea id="note-input" placeholder="Write your note here..."></textarea>
+        <br>
+        <button type="submit" id="saveButton">Save</button>
+
+
+        <!-- where saved notes will be -->
+        <section>
+            <div id="all-notes" class="all-notes">
+            </div>
+        </section>
+
+</body>
+</html>
