@@ -5,7 +5,7 @@
     <form action="" id="searchForm">
         <input type="text" id="searchNotesInput" placeholder="Search Note">
         <br><br>
-        <button type="submit" id="searchButton">search</button>
+        <button type="submit" id="searchButton">Search</button>
     </form>
 </div>
 <br><br>
@@ -23,18 +23,12 @@
 <div>
     <!-- where saved notes will be -->
     <div id="all-notes" class="all-notes">
-        <div class="note-card blue">
-            <h3 class="note-title">Title of note</h3>
-            <p class="note-content">this is note content</p>
-        </div>
-        <div class="note-card pink">
-            <h3 class="note-title">Title of note</h3>
-            <p class="note-content">this is note content</p>
-        </div>
-        <div class="note-card orange">
-            <h3 class="note-title">Title of note</h3>
-            <p class="note-content">this is note content</p>
-        </div>
+        {{#each notes as |note|}}
+            <div class="note-card blue">
+                <h3 class="note-title">{{note.title}}</h3>
+                <p class="note-content">{{note.content}}</p>
+            </div>
+        {{/each}}
     </div>
 </div>
 
