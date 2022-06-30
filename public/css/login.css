@@ -1,0 +1,11 @@
+:root {
+    --white: white;
+    --lightblue:rgb(138, 168, 169);
+    --lightestblue: rgb(208, 224, 225);
+    --font: 'Courier New', Courier, monospace;
+    --black: black;
+}
+
+.row {
+    display: inline;
+}
