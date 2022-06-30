@@ -20,13 +20,25 @@ a {
 header {
     font: var(--font);
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
     background-color: var(--darkerblue);
     color: var(--white);
     height: 75px;
     font-size: 18px;
 }
+
 .password-match{
     color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logout-btn {
+    background-color: var(--lightblue);
+    margin: 10px;
+    padding: 10px;
+    color: var(--white);
+    border-radius: 8px;
+    border-color: var(--lightblue);
 }
