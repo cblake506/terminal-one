@@ -1,4 +1,59 @@
-Note Taker
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>terminal-home</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/homepage.css" />
+</head>
+
+<body>
+    <h1>terminal-one</h1>
+
+    <!-- search in saved notes -->
+    <div>
+        <form action="" id="searchForm">
+            <input type="text" id="searchNotesInput" placeholder="Search Note">
+            <br><br>
+            <button type="submit" id="searchButton">search</button>
+        </form>
+    </div>
+    <br><br>
+
+    <!-- create new note -->
+    <div>
+        <form name="createNote" id="createNote">
+        <input id="TitleInput" type="text" maxlength="25" placeholder="Type a title...">
+        <br><br>
+        <textarea id="note-input" placeholder="Write your note here..."></textarea>
+        <br>
+        <button type="submit" id="saveButton">Save</button>
+    </div>
+
+    <div>
+        <!-- where saved notes will be -->
+        <div id="all-notes" class="all-notes">
+            <div class="note-card blue">
+                <h3 class="note-title">Title of note</h3>
+                <p class="note-content">this is note content</p>
+            </div>
+            <div class="note-card pink">
+                <h3 class="note-title">Title of note</h3>
+                <p class="note-content">this is note content</p>
+            </div>
+            <div class="note-card orange">
+                <h3 class="note-title">Title of note</h3>
+                <p class="note-content">this is note content</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{{!-- Note Taker
 <br />
 
 Take and share notes
@@ -6,4 +61,4 @@ Take and share notes
 
 {{#if logged_in}}
 Welcome, {{userName}}
-{{/if}}
+{{/if}} --}}
