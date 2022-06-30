@@ -1,6 +1,7 @@
 *{
     align-items: center;
     text-align: center;
+    font-size: 16px;
 }
 
 :root {
@@ -56,6 +57,7 @@ button:hover {
 .all-notes {
     display: flex;
     margin: 20px;
+    text-align: left;
 }
 
 .note-card {
@@ -63,6 +65,9 @@ button:hover {
     height: 200px;
     width: 200px;
     margin: 10px;
+    padding: 5px;
+    text-align: left;
+    font-size: 12px;
 }
 
 .blue {

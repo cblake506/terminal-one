@@ -1,5 +1,31 @@
-body{
-    background-color: lightblue;
+:root {
+    --white: white;
+    --lightblue:rgb(138, 168, 169);
+    --lightestblue: rgb(208, 224, 225);
+    --darkerblue: rgb(69, 98, 99);
+    --font: 'Courier New', Courier, monospace;
+    --black: black;
+}
+
+body {
+    background-color: var(--lightblue);
+}
+
+a {
+    font-style: none;
+    color: var(--white);
+    padding: 20px;
+}
+
+header {
+    font: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: var(--darkerblue);
+    color: var(--white);
+    height: 75px;
+    font-size: 18px;
 }
 .password-match{
     color: red;

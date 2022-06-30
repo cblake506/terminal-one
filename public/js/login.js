@@ -14,8 +14,7 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            //document.location.replace('/notes');
-            document.location.reload();
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
@@ -40,7 +39,7 @@ const signupFormHandler = async (event) => {
         });
   
         if (response.ok) {
-            document.location.reload();
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }

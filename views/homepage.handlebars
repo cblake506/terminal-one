@@ -1,61 +1,39 @@
-Note Taker
-<br />
+<h1>terminal-one</h1>
 
-Take and share notes
+<!-- search in saved notes -->
+<div>
+    <form action="" id="searchForm">
+        <input type="text" id="searchNotesInput" placeholder="Search Note">
+        <br><br>
+        <button type="submit" id="searchButton">search</button>
+    </form>
+</div>
+<br><br>
 
-
-<div class="row">
-    <div class="col-md-6">
-        <h2>Login</h2>
-
-        <form class="form login-form">
-            <div class="form-group">
-                <label for="username-login">Username:</label>
-                <input class="form-input" type="text" id="username-login" />
-            </div>
-            <div class="form-group">
-                <label for="password-login">Password:</label>
-                <input class="form-input" type="password" id="password-login" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">Login</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="col-md-6">
-        <h2>Signup</h2>
-
-        <form class="form signup-form">
-            <div class="form-group">
-                <label for="name-signup">Username:</label>
-                <input class="form-input" type="text" id="name-signup" />
-            </div>
-
-            <div class="form-group">
-                <label for="password-signup">Password:</label>
-                <input class="form-input" type="password" id="password-signup" />
-            </div>
-
-            <div class="form-group">
-                <label for="password-confirm">Confirm password:</label>
-                <input class="form-input" type="password" id="password-confirm" />
-            </div>
-             <span class="password-match"></span>
-           
-            <div class="form-group">
-                <label for="email-signup">email:</label>
-                <input class="form-input" type="text" id="email-signup" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">signup</button>
-            </div>
-        </form>
-    </div>
+<!-- create new note -->
+<div>
+    <form name="createNote" id="createNote">
+        <input id="TitleInput" type="text" maxlength="25" placeholder="Type a title...">
+        <br><br>
+        <textarea id="note-input" placeholder="Write your note here..."></textarea>
+        <br>
+        <button type="submit" id="saveButton">Save</button>
 </div>
 
-{{#if logged_in}}
-Welcome, {{userName}}
-{{/if}}
-
-<script src="./js/login.js"></script>
+<div>
+    <!-- where saved notes will be -->
+    <div id="all-notes" class="all-notes">
+        <div class="note-card blue">
+            <h3 class="note-title">Title of note</h3>
+            <p class="note-content">this is note content</p>
+        </div>
+        <div class="note-card pink">
+            <h3 class="note-title">Title of note</h3>
+            <p class="note-content">this is note content</p>
+        </div>
+        <div class="note-card orange">
+            <h3 class="note-title">Title of note</h3>
+            <p class="note-content">this is note content</p>
+        </div>
+    </div>
+</div>
