@@ -1,29 +1,29 @@
 [
     {
       "userName": "javier",
-      "email": "sal@hotmail.com",
-      "password": "password12345"
+      "email": "javier@gmail.com",
+      "password": "hello123"
     },
     {
       "userName": "connor",
-      "email": "lernantino@gmail.com",
-      "password": "password12345"
+      "email": "connor@gmail.com",
+      "password": "123"
     },
     {
       "userName": "cadence",
-      "email": "amioiko2k20@aol.com",
-      "password": "password12345"
+      "email": "cadence@gmail.com",
+      "password": "123"
     },
     {
       "userName": "tyler",
-      "email": "ameaiko2k20@aol.com",
-      "password": "password12345"
+      "email": "tyler@gmail.com",
+      "password": "123"
     },
     {
       "userName": "sofia",
-      "email": "amiko2k20124@aol.com",
-      "password": "password12345"
+      "email": "sofia@gmail.com",
+      "password": "123"
     }
-  ]
+]
 
   
