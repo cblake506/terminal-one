@@ -27,3 +27,6 @@ header {
     height: 75px;
     font-size: 18px;
 }
+.password-match{
+    color: red;
+}

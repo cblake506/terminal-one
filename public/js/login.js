@@ -27,9 +27,10 @@ const signupFormHandler = async (event) => {
     const userName = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-  
-    if (userName && email && password) {
-        console.log(JSON.stringify({ userName, email, password }))
+    const passwordConfirm = document.querySelector('#password-confirm').value.trim();
+    if(password !== passwordConfirm){
+        document.querySelector('.password-match').innerHTML = 'Passwords do not match.';
+    } else if (userName && email && password && passwordConfirm) {
         
         const response = await fetch('/api/users', {
             method: 'POST',
