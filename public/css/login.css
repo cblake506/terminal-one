@@ -7,5 +7,54 @@
 }
 
 .row {
-    display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.col-md-6 {
+    padding: 50px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.label {
+    font-size: 20px;
+}
+
+.col-md-6 h2 {
+    font-size: 26px;
+}
+
+.btn-signup {
+    width: 100px;
+}
+
+.input-text {
+    text-align: left;
+}
+
+@media screen and (max-width: 450px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .label {
+        font-size: 16px;
+    }
+    .form {
+        text-align: center;
+        align-content: center;
+    }
+
+  }
+
+  @media screen and (max-width: 800px) {
+    .col-md-6 {
+        padding: 20px;
+    }
+  }
