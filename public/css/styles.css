@@ -1,3 +1,6 @@
 body{
     background-color: lightblue;
 }
+.password-match{
+    color: red;
+}
