@@ -1,19 +1,22 @@
 const router = require('express').Router();
-const { Note, User } = require('../models');
+const { Note, User, Users_Notes } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    // const userData = await User.findByPk(req.session.user_id, {
-    //   // JOIN with users, using the Users_Notes through table
-    //   include: [{ model: Note, through: Users_Notes, as: 'note-to-user' }]
-    // });
+    const userData = await User.findByPk(req.session.user_id, {
+       include: [{ model: Note, through: Users_Notes, as: 'note-to-user' }]
+    });
+    const notesData = userData.get({plain: true})['note-to-user'];
+    const notes = notesData.map(x => {return {id: x.id, title: x.note_title, content: x.note_content}});
+    console.log(notes);
     res.render('homepage',{
       logged_in: req.session.logged_in,
       userName: req.session.userName,
-      notes: [{title:'note1', content:'content1'}, {title:'note2', content:'content2'}, {title:'note3', content:'content3'}]
+      notes: notes
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
