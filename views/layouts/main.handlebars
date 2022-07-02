@@ -17,7 +17,10 @@
     <header class="flex-column align-begin p-2 header_a">
       <nav>
         <!-- Conditionally render login or logout links -->
-        <button class="logout-btn" id="logoutBtn">Logout</button> 
+          {{#if logged_in}}
+          <button class="logout-btn" id="logoutBtn">Logout</button> 
+          <script src="/js/logout.js"></script>
+          {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
