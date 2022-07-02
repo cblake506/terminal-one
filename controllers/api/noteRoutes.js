@@ -32,9 +32,18 @@ router.get('/:id', async (req, res) => {
 
 // CREATE a note
 router.post('/', async (req, res) => {
-    try {
-        const noteData = await Note.create(req.body);
-        res.status(200).json(noteData);
+    try { 
+            const noteData = await Note.create(req.body);
+            res.status(200).json(noteData);
+            
+            //Add new note to intermediary table
+            await Users_Notes.create({
+                user_id: req.session.user_id,
+                note_id: noteData.id
+            }).catch((err) => {
+                // If there's an error, such as the same random pairing of `user.id` and `note.id` occurring and we get a constraint error, don't quit the Node process
+                console.log(err);
+            });
     } catch (err) {
         console.log(err);
         res.status(400).json(err);
