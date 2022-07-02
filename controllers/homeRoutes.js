@@ -9,7 +9,6 @@ router.get('/', withAuth, async (req, res) => {
     });
     const notesData = userData.get({plain: true})['note-to-user'];
     const notes = notesData.map(x => {return {id: x.id, title: x.note_title, content: x.note_content}});
-    console.log(notes);
     res.render('homepage',{
       logged_in: req.session.logged_in,
       userName: req.session.userName,
