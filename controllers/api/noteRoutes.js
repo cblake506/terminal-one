@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Note, User, Users_Notes } = require('../../models');
+const mailman = require('../../utils/mailman')
 
 // GET all notes
 router.get('/', async (req, res) => {
@@ -101,8 +102,23 @@ router.post('/share', async (req, res) => {
             res.status(400).json({ message: 'Incorrect parameters' });
             return;
         }
-        const result = await Users_Notes.create(req.body);
-        res.status(200);
+        let result = await Users_Notes.create(req.body);
+        //notify user
+        result = await User.findByPk(req.body.user_id, {
+             attributes: ['email']
+        });
+        const user = result.get({plan: true});
+        const address = user.email;
+
+        result = await Note.findByPk(req.body.note_id, {
+            attributes: ['note_title', 'note_content']
+        });
+        const note = result.get({plan: true});
+        const message = `${req.session.userName} has shared a new <a href="http://notedepot.herokuapp.com">note</a> with you`
+                        +`<br/><br/><div style="border: 2px solid pink;"><h3>${note.note_title}</h3><p>${note.note_content}</p></div>`;
+        mailman.send(address, message);
+        console.log('send response');
+        res.status(200).send('note shared');
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
