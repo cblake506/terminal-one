@@ -34,10 +34,6 @@ const onSelectionChanged = (note_id, user_id) =>{
 
 const shareNote = async (noteId) => {
 
-    var currentSelect = document.getElementById("userSelect");
-    if (currentSelect !== null)
-        return;
-
     const result = await fetch('/api/users/notme')
     const users = await result.json();
 
@@ -91,6 +87,14 @@ console.log('key')
     }
 }
 
+const handleClick = async (event) => {
+    if (!event.target.id || event.target.id !== 'userSelect'){
+        var currentSelect = document.getElementById("userSelect");
+        if (currentSelect !== null)
+        currentSelect.remove();
+    }
+}
+
 document
     .querySelector('#createNote')
     .addEventListener('submit', createNote);
@@ -101,3 +105,4 @@ document
 
 document.getElementById('searchNotesInput').addEventListener('input', filterNotes);
 
+document.addEventListener('click', handleClick);
