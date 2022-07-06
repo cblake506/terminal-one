@@ -74,6 +74,7 @@ button:hover {
     display: flex;
     margin: 20px;
     text-align: left;
+    flex-flow: row wrap;
 }
 
 .note-card {
