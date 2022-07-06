@@ -77,13 +77,12 @@ router.delete('/:id', async (req, res) => {
             return;
         }
 
-        console.log('detroy note');
         var deleteNote = await Note.destroy({
             where: {
                 id: req.params.id
             }
         });
-        console.log(deleteNote);
+
         if (!deleteNote) {
             res.status(404).json({ message: 'No note found with this id!' });
             return;
