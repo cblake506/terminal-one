@@ -35,7 +35,6 @@ const onSelectionChanged = (note_id, user_id) =>{
 const shareNote = async (noteId) => {
 
     var currentSelect = document.getElementById("userSelect");
-    console.log(currentSelect);
     if (currentSelect !== null)
         return;
 
@@ -62,6 +61,18 @@ const shareNote = async (noteId) => {
     select.setAttribute('onchange', `onSelectionChanged(${noteId}, this.options[this.selectedIndex].value)`);
  
     document.getElementById(`noteCard${noteId}`).appendChild(select);
+}
+
+const deleteNote = async (noteId) => {
+    //todo: change confirm for modal
+    const answer = confirm('Are you sure you want to delete this note?');
+    if (answer === false)
+        return;
+    var res = await fetch(`/api/notes/${noteId}`,{
+        method: 'DELETE'
+    });
+    if(res.ok)
+        document.location.reload();
 }
 
 document
