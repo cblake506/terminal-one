@@ -102,6 +102,18 @@ router.post('/share', async (req, res) => {
             res.status(400).json({ message: 'Incorrect parameters' });
             return;
         }
+        
+        const isDuplicate = await Users_Notes.findAndCountAll({
+            where: {
+                user_id: req.body.user_id,
+                note_id: req.body.note_id
+            }
+        })
+        if(isDuplicate.count === 0){
+            const result = await Users_Notes.create(req.body);
+            res.status(200);
+        }
+        
         let result = await Users_Notes.create(req.body);
         //notify user
         result = await User.findByPk(req.body.user_id, {
