@@ -34,9 +34,29 @@ h1{
     font-size: 16px;
 }
 
+.card-title{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #e5acb6;
+    padding: 0 8px;
+}
+
+.card-title i{
+    margin: 0 8px;
+}
+
+.note-options{
+    display: flex;
+    justify-content: right;
+}
+
 .note-title {
     font-family: 'bradley hand';
     font-size: 20px;
+    
+    margin: 0px;
+    padding: 10px 0;
 }
 
 #note-input {
@@ -64,6 +84,7 @@ button:hover {
     display: flex;
     margin: 20px;
     text-align: left;
+    flex-flow: row wrap;
 }
 
 .note-card {
@@ -71,7 +92,6 @@ button:hover {
     height: 200px;
     width: 200px;
     margin: 10px;
-    padding: 5px;
     text-align: left;
     font-size: 12px;
     position: relative;
@@ -99,4 +119,8 @@ button:hover {
 
 .pink {
     background-color: pink;
+}
+
+.almost-invisible{
+    opacity: 20%;
 }

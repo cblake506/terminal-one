@@ -53,19 +53,59 @@ router.post('/', async (req, res) => {
 // DELETE a note
 router.delete('/:id', async (req, res) => {
     try {
-        const noteData = await Note.destroy({
+        const deleteData = await Users_Notes.destroy({
             where: {
-                id: req.params.id
+                note_id: req.params.id,
+                user_id: req.session.user_id
             }
         });
 
-        if (!noteData) {
+        if (!deleteData) {
             res.status(404).json({ message: 'No note found with this id!' });
             return;
         }
 
-        res.status(200).json(noteData);
+        //delete from Note if there are no more associations
+        noteData = await Users_Notes.findAll({
+            where: {
+                note_id: req.params.id
+            }
+        });
+
+        if (noteData.length){
+            res.status(200);
+            return;
+        }
+
+        console.log('detroy note');
+        var deleteNote = await Note.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        console.log(deleteNote);
+        if (!deleteNote) {
+            res.status(404).json({ message: 'No note found with this id!' });
+            return;
+        }
+        res.status(200).send("deleted");
+
     } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.post('/share', async (req, res) => {
+    try {
+        if (!req.body || ! req.body.user_id || ! req.body.note_id) {
+            res.status(400).json({ message: 'Incorrect parameters' });
+            return;
+        }
+        const result = await Users_Notes.create(req.body);
+        res.status(200);
+    } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });

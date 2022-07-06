@@ -1,11 +1,11 @@
-<h1>terminal-one</h1>
+<h1>Note Depot</h1>
 
 <!-- search in saved notes -->
 <div>
     <form action="" id="searchForm">
         <input type="text" id="searchNotesInput" placeholder="Search Note">
         <br><br>
-        <button class="btn" type="submit" id="searchButton">Search</button>
+        {{!-- <button class="btn" type="submit" id="searchButton">Search</button> --}}
     </form>
 </div>
 <br><br>
@@ -24,8 +24,16 @@
     <!-- where saved notes will be -->
     <div id="all-notes" class="all-notes">
         {{#each notes as |note|}}
-            <div class="note-card pink" id="noteCard">
-                <h3 id="noteTitle" class="note-title">{{note.title}}</h3>
+            <div class="note-card pink" id="noteCard{{note.id}}">
+                <div class="card-title">
+                     <h3 id="noteTitle{{note.id}}" class="note-title">{{note.title}}</h3>
+                     <div class="note-options">
+                        <i class="fa-solid fa-users" onclick="shareNote({{note.id}})"></i>
+                        <i class="fa-solid fa-trash-can" onclick="deleteNote({{note.id}})"></i>
+                     </div>
+                     
+                </div>
+               
                 <p class="note-content">{{note.content}}</p>
             </div>
         {{/each}}
