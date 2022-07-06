@@ -22,12 +22,15 @@ const createNote = async (event) => {
     }
 };
 
-const onSelectionChanged = (note_id, user_id) =>{
-    fetch('/api/notes/share', {
+
+const onSelectionChanged = async (note_id, user_id) =>{
+    const response = await fetch('/api/notes/share', {
         method: 'POST',
         body: JSON.stringify({ note_id, user_id }),
         headers: { 'Content-Type': 'application/json'},
     })
+    if (response.ok)
+        console.log('note has been shared');
     document.getElementById('userSelect').remove();
 }
 
@@ -75,7 +78,6 @@ const deleteNote = async (noteId) => {
 
 
 const filterNotes = async (event) => {
-console.log('key')
     //event.preventDefault();
     const needle = document.getElementById('searchNotesInput').value.toLowerCase();
     let haystack = document.getElementsByClassName('note-card');
