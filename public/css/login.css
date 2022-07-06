@@ -1,3 +1,6 @@
+/* style sheet applies to login handlebars file */
+
+/* root styling, same as styles.css for consistent look */
 :root {
     --white: white;
     --lightblue:rgb(138, 168, 169);
@@ -6,6 +9,7 @@
     --black: black;
 }
 
+/* makes logins next to each other not stacked */
 .row {
     display: flex;
     align-items: center;
@@ -36,6 +40,7 @@
     text-align: left;
 }
 
+/* media queries for mobile */
 @media screen and (max-width: 450px) {
     .row {
         display: flex;
