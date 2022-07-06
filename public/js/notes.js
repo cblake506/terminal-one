@@ -64,11 +64,14 @@ const deleteNote = async (noteId) => {
     const answer = confirm('Are you sure you want to delete this note?');
     if (answer === false)
         return;
-    var res = await fetch(`/api/notes/${noteId}`,{
-        method: 'DELETE'
-    });
-    if(res.ok)
-        document.location.reload();
+        
+    {    
+        var res = await fetch(`/api/notes/${noteId}`,{
+            method: 'DELETE'
+        });
+        if(res.ok)
+            document.location.reload();
+    }
 }
 
 
