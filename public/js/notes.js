@@ -23,7 +23,6 @@ const createNote = async (event) => {
 };
 
 const onSelectionChanged = (note_id, user_id) =>{
-    console.log(note_id, user_id);
     fetch('/api/notes/share', {
         method: 'POST',
         body: JSON.stringify({ note_id, user_id }),
@@ -64,7 +63,7 @@ const deleteNote = async (noteId) => {
     const answer = confirm('Are you sure you want to delete this note?');
     if (answer === false)
         return;
-        
+
     {    
         var res = await fetch(`/api/notes/${noteId}`,{
             method: 'DELETE'
