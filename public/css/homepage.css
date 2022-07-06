@@ -34,9 +34,19 @@ h1{
     font-size: 16px;
 }
 
+.card-title{
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: #e5acb6;
+}
+
 .note-title {
     font-family: 'bradley hand';
     font-size: 20px;
+    
+    margin: 0px;
+    padding: 10px 0;
 }
 
 #note-input {
@@ -71,7 +81,6 @@ button:hover {
     height: 200px;
     width: 200px;
     margin: 10px;
-    padding: 5px;
     text-align: left;
     font-size: 12px;
     position: relative;

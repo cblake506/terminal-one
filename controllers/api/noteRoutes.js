@@ -70,4 +70,18 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+router.post('/share', async (req, res) => {
+    try {
+        if (!req.body || ! req.body.user_id || ! req.body.note_id) {
+            res.status(400).json({ message: 'Incorrect parameters' });
+            return;
+        }
+        const result = await Users_Notes.create(req.body);
+        res.status(200);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

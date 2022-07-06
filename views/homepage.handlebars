@@ -24,8 +24,13 @@
     <!-- where saved notes will be -->
     <div id="all-notes" class="all-notes">
         {{#each notes as |note|}}
-            <div class="note-card pink" id="noteCard">
-                <h3 id="noteTitle" class="note-title">{{note.title}}</h3>
+            <div class="note-card pink" id="noteCard{{note.id}}">
+                <div class="card-title">
+                     <h3 id="noteTitle{{note.id}}" class="note-title">{{note.title}}</h3>
+                     <i class="fa-solid fa-users" onclick="shareNote({{note.id}})"></i>
+                     <i class="fa-solid fa-trash-can"></i>
+                </div>
+               
                 <p class="note-content">{{note.content}}</p>
             </div>
         {{/each}}

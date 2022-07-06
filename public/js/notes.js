@@ -7,7 +7,7 @@ const createNote = async (event) => {
 
     if (note_title && note_content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('http://localhost:3001/api/notes', {
+        const response = await fetch('/api/notes', {
             method: 'POST',
             body: JSON.stringify({ note_title, note_content }),
             headers: { 'Content-Type': 'application/json'},
@@ -21,6 +21,48 @@ const createNote = async (event) => {
         }
     }
 };
+
+const onSelectionChanged = (note_id, user_id) =>{
+    console.log(note_id, user_id);
+    fetch('/api/notes/share', {
+        method: 'POST',
+        body: JSON.stringify({ note_id, user_id }),
+        headers: { 'Content-Type': 'application/json'},
+    })
+    document.getElementById('userSelect').remove();
+}
+
+const shareNote = async (noteId) => {
+
+    var currentSelect = document.getElementById("userSelect");
+    console.log(currentSelect);
+    if (currentSelect !== null)
+        return;
+
+    const result = await fetch('/api/users/notme')
+    const users = await result.json();
+
+    var select = document.createElement("select");
+    select.name = "users";
+    select.id = "userSelect"
+ 
+    var option = document.createElement("option");
+    option.value = 0;
+    option.text = 'Share with';
+    option.setAttribute('disabled', 'true');
+    option.setAttribute('selected', 'true');
+    select.appendChild(option);
+    for (const u of users)
+    {
+        var option = document.createElement("option");
+        option.value = u.id;
+        option.text = u.userName;
+        select.appendChild(option);
+    }
+    select.setAttribute('onchange', `onSelectionChanged(${noteId}, this.options[this.selectedIndex].value)`);
+ 
+    document.getElementById(`noteCard${noteId}`).appendChild(select);
+}
 
 document
     .querySelector('#createNote')

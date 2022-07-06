@@ -11,6 +11,22 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/notme', async (req, res) => {
+    try {
+        if (req.session && req.session.logged_in){
+            const userData = await User.findAll();
+            let users = userData
+                        .map(x => x.get({plain: true}))
+                        .filter(x => x.userName != req.session.userName)
+                        .map(x => {return {'id':x.id, 'userName':x.userName};});
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(users));
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // GET a single user
 router.get('/:id', async (req, res) => {
   try {
