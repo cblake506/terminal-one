@@ -7,6 +7,15 @@
     --black: black;
 }
 
+.header_a{
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcome{
+    margin-left: 10px;
+}
+
 body {
     background-color: var(--lightblue);
 }
