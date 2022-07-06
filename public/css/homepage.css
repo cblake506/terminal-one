@@ -110,3 +110,7 @@ button:hover {
 .pink {
     background-color: pink;
 }
+
+.almost-invisible{
+    opacity: 20%;
+}

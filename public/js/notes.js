@@ -75,7 +75,29 @@ const deleteNote = async (noteId) => {
         document.location.reload();
 }
 
+
+const filterNotes = async (event) => {
+console.log('key')
+    //event.preventDefault();
+    const needle = document.getElementById('searchNotesInput').value.toLowerCase();
+    let haystack = document.getElementsByClassName('note-card');
+    for (h of haystack){
+        let title = h.children[0].children[0].innerHTML.toLowerCase();
+        let content = h.children[1].innerHTML.toLowerCase();
+        if(!title.includes(needle) && !content.includes(needle))
+            h.classList.add('almost-invisible');
+        else
+            h.classList.remove('almost-invisible');
+    }
+}
+
 document
     .querySelector('#createNote')
     .addEventListener('submit', createNote);
+
+document
+    .querySelector('#searchForm')
+    .addEventListener('submit', filterNotes);
+
+document.getElementById('searchNotesInput').addEventListener('input', filterNotes);
 
