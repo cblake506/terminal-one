@@ -1,3 +1,6 @@
+/* General Styling Sheet for all handlebars pages */
+
+/* root styling */
 :root {
     --white: white;
     --lightblue:rgb(138, 168, 169);
@@ -7,25 +10,31 @@
     --black: black;
 }
 
-.header_a{
+/* style for header welcome message */
+.header_a {
     display: flex;
     justify-content: space-between;
 }
 
-.welcome{
+/* style for welcome message */
+.welcome {
     margin-left: 10px;
 }
 
+
+/* general body styling */
 body {
     background-color: var(--lightblue);
 }
 
+/* a tag styling */
 a {
     font-style: none;
     color: var(--white);
     padding: 20px;
 }
 
+/* styling for headercontent and color */
 header {
     font: var(--font);
     display: flex;
@@ -38,12 +47,14 @@ header {
     margin: 0;
 }
 
+/* styling for password match */
 .password-match{
     color: red;
     font-size: 20px;
     font-weight: bold;
 }
 
+/* styling for logout button */
 .logout-btn {
     background-color: var(--lightblue);
     margin: 10px;
