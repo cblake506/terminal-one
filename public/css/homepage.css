@@ -36,9 +36,19 @@ h1{
 
 .card-title{
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
     background-color: #e5acb6;
+    padding: 0 8px;
+}
+
+.card-title i{
+    margin: 0 8px;
+}
+
+.note-options{
+    display: flex;
+    justify-content: right;
 }
 
 .note-title {
