@@ -73,8 +73,8 @@ router.delete('/:id', async (req, res) => {
             }
         });
 
-        if (noteData.length){
-            res.status(200);
+        if (noteData.length > 0){
+            res.status(200).send("deleted");
             return;
         }
 
@@ -108,13 +108,13 @@ router.post('/share', async (req, res) => {
                 user_id: req.body.user_id,
                 note_id: req.body.note_id
             }
-        })
-        if(isDuplicate.count === 0){
-            const result = await Users_Notes.create(req.body);
-            res.status(200);
-        }
+        });
         
-        let result = await Users_Notes.create(req.body);
+        if(isDuplicate.count > 0){
+            res.status(200).send('note shared');
+            return;
+        }
+        const result = await Users_Notes.create(req.body);
         //notify user
         result = await User.findByPk(req.body.user_id, {
              attributes: ['email']
@@ -129,7 +129,6 @@ router.post('/share', async (req, res) => {
         const message = `${req.session.userName} has shared a new <a href="http://notedepot.herokuapp.com">note</a> with you`
                         +`<br/><br/><div style="border: 2px solid pink;"><h3>${note.note_title}</h3><p>${note.note_content}</p></div>`;
         mailman.send(address, message);
-        console.log('send response');
         res.status(200).send('note shared');
     } catch (err) {
         console.log(err);

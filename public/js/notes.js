@@ -67,13 +67,11 @@ const deleteNote = async (noteId) => {
     if (answer === false)
         return;
 
-    {    
-        var res = await fetch(`/api/notes/${noteId}`,{
-            method: 'DELETE'
-        });
-        if(res.ok)
-            document.location.reload();
-    }
+    var res = await fetch(`/api/notes/${noteId}`,{
+        method: 'DELETE'
+    });
+    if(res.status === 200)
+        document.location.reload();
 }
 
 
